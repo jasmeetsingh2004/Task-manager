@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  
+  body {
+    @apply bg-slate-950 text-slate-100 font-sans antialiased;
+    font-size: 15px;
+  }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-slate-700 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-slate-600; }
+}
+
+@layer components {
+  .card {
+    @apply bg-slate-900 border border-slate-800 rounded-xl;
+  }
+
+  .btn-primary {
+    @apply bg-indigo-600 hover:bg-indigo-500 text-white font-medium px-4 py-2 rounded-lg
+           transition-all duration-150 flex items-center gap-2 text-sm disabled:opacity-50
+           disabled:cursor-not-allowed active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium px-4 py-2 rounded-lg
+           transition-all duration-150 flex items-center gap-2 text-sm active:scale-95;
+  }
+
+  .btn-danger {
+    @apply bg-red-600/20 hover:bg-red-600/30 text-red-400 font-medium px-4 py-2 rounded-lg
+           transition-all duration-150 flex items-center gap-2 text-sm active:scale-95;
+  }
+
+  .input {
+    @apply bg-slate-800 border border-slate-700 text-slate-100 rounded-lg px-3 py-2
+           focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/50
+           placeholder:text-slate-500 transition-colors text-sm w-full;
+  }
+
+  .label {
+    @apply text-slate-400 text-xs font-medium uppercase tracking-wide mb-1.5 block;
+  }
+
+  .badge-todo { @apply bg-slate-700 text-slate-300; }
+  .badge-in_progress { @apply bg-blue-600/20 text-blue-400; }
+  .badge-review { @apply bg-amber-600/20 text-amber-400; }
+  .badge-done { @apply bg-emerald-600/20 text-emerald-400; }
+  .badge-low { @apply bg-slate-700 text-slate-400; }
+  .badge-medium { @apply bg-amber-600/20 text-amber-400; }
+  .badge-high { @apply bg-red-600/20 text-red-400; }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full;
+  }
+
+  .modal-overlay {
+    @apply fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4;
+    animation: fadeIn 0.15s ease-out;
+  }
+
+  .modal-content {
+    @apply card w-full max-w-lg p-6 shadow-2xl;
+    animation: slideUp 0.2s ease-out;
+  }
+}
